@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
 import StyledButton from "./styles";
 import {
   ArrowLeftIcon,
@@ -56,13 +55,11 @@ const Button = ({
 
   return (
     <StyledButton
-      variant={variant}
-      disableShadow={disableShadow}
+      $variant={variant}
+      $disableShadow={disableShadow}
+      $size={size}
+      $color={color}
       disabled={disabled}
-      startIcon={startIcon}
-      endIcon={endIcon}
-      size={size}
-      color={color}
       onClick={onClick}
       title={title}
       {...rest}
@@ -72,28 +69,6 @@ const Button = ({
       {endIcon_}
     </StyledButton>
   );
-};
-
-Button.propTypes = {
-  variant: PropTypes.oneOf(["outline", "text", "default"]),
-  disableShadow: PropTypes.bool,
-  disabled: PropTypes.bool,
-  startIcon: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.oneOf(Object.keys(icons)),
-  ]),
-  endIcon: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.oneOf(Object.keys(icons)),
-  ]),
-  size: PropTypes.oneOf(["sm", "md", "lg"]),
-  color: PropTypes.oneOf(["default", "primary", "secondary", "danger"]),
-  title: PropTypes.string,
-  onClick: PropTypes.func,
-};
-Button.defaultProps = {
-  size: "md",
-  title: "",
 };
 
 export default Button;
